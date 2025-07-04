@@ -102,7 +102,7 @@ module.exports = grammar({
         ),
         array_literal: $ => seq(
             '[',
-            optional(seq($.identifier, repeat(seq(',', $.identifier)))),
+            optional(seq($.string, repeat(seq(',', $.string)))),
             ']'
         ),
 

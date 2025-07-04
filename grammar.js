@@ -104,9 +104,13 @@ module.exports = grammar({
         // MARK: Menu Defintions
         menu_definition: $ => seq(
             'menu',
-            choice('(', /\s+/),
+            '(',
+            //choice('(', /\s+/),
             field("prompt", $.string),
-            choice('(', /\s+/),
+            ',',
+            field("options", $.array_literal),
+            ')',
+            //choice('(', /\s+/),
             field("body", $.menu_block),
             optional(field('magic_variable', $.magic_variable_definition))
         ),

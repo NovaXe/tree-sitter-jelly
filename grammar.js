@@ -100,11 +100,11 @@ module.exports = grammar({
             '$$',
             '$!'
         ),
-        array_literal: $ => seq(
-            '[',
-            optional(seq($.string, repeat(seq(',', $.string)))),
-            ']'
-        ),
+        // array_literal: $ => seq(
+        //     '[',
+        //     optional(seq($.string, repeat(seq(',', $.string)))),
+        //     ']'
+        // ),
 
         // MARK: Menu Defintions
         menu_definition: $ => seq(
@@ -113,7 +113,7 @@ module.exports = grammar({
             //choice('(', /\s+/),
             field("prompt", $.string),
             ',',
-            field("options", $.array_literal),
+            field("options", $.array),
             ')',
             //choice('(', /\s+/),
             field("body", $.menu_block),

@@ -100,6 +100,11 @@ module.exports = grammar({
             '$$',
             '$!'
         ),
+        array_literal: $ => seq(
+            '[',
+            optional(seq($.expression, repeat(seq(',', $.expression)))),
+            ']'
+        ),
 
         // MARK: Menu Defintions
         menu_definition: $ => seq(
